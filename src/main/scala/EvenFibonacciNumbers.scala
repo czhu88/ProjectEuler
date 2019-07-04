@@ -8,15 +8,16 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 object EvenFibonacciNumbers {
   val solutionOne: Int = {
-    def fib(total: Int, num1: Int, num2: Int): Int = {
+    def sumOfEvenFibNums(total: Int, num1: Int, num2: Int): Int = {
       val newTotal = if (num2 % 2 == 0) total + num2 else total
-      if (num1 + num2 <= 4000000){
-        fib(newTotal, num2, num1 + num2)
-      }else {
-        newTotal
-      }
+      if (num1 + num2 <= 4000000) sumOfEvenFibNums(newTotal, num2, num1 + num2) else newTotal
     }
 
-    fib(0, 1, 2)
+    sumOfEvenFibNums(0, 1, 2)
+  }
+
+  val solutionTwo: Int = {
+    def sumOfEvenFibNums(total: Int, num1: Int, num2: Int): Int = if (num2 <= 4000000) sumOfEvenFibNums(total + num2, num2, 4 * num2 + num1) else total
+    sumOfEvenFibNums(2, 2, 8)
   }
 }
