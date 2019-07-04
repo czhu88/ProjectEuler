@@ -3,10 +3,7 @@ object MultiplesOfThreeAndFives {
 
   def solutionTwo(maxNum: Int): Int = calculateMultipleSum(maxNum, 3) + calculateMultipleSum(maxNum, 5) - calculateMultipleSum(maxNum, 15)
 
-  private def calculateMultipleSum(maxNum: Int, multiple: Int) = {
-    val highestMultiple = maxNum / multiple
-    multiple * sumOfSequence(highestMultiple)
-  }
+  private def calculateMultipleSum(maxNum: Int, multiple: Int): Int = multiple * sumOfSequence(maxNum / multiple)
 
   private def sumOfSequence(sequenceEndNumber: Int): Int = (sequenceEndNumber * (sequenceEndNumber + 1)) / 2
 }
